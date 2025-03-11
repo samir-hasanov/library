@@ -1,0 +1,15 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+#        default_schema: course
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/book"
+    username: postgres
+    password: 12345
+
+server:
+  port: 8087
