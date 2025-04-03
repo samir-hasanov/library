@@ -14,19 +14,25 @@ import java.util.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Book {
+public class Reader {
     @Id
-    @Column(name = "uuid")
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID uuid;
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(name = "aue")
     private String name;
-    private String authorName;
-    private int count;
+    private String surname;
+    private String email;
     @Column(length = 1000)
     private String imageUrl;
-    @OneToOne
-    private Author author;
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date borrowedFrom;
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date borrowedTo;
+    @ManyToMany
+    private Set<Book> borrowedBooks = new HashSet<>();
     @Builder.Default
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
@@ -40,5 +46,5 @@ public class Book {
     private Date updateTime = new Date();
 
     @Column(name = "is_deleted")
-    private boolean deleted;
+    private boolean deleted=false;
 }
