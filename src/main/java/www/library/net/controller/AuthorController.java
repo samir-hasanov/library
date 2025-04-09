@@ -12,10 +12,5 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/author")
 public class AuthorController {
-    @Autowired
-    private AuthorService service;
-    @GetMapping("/list")
-    public List<Author> getList(){
-        return service.getList();
-    }
+
 }

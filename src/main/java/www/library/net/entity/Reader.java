@@ -33,6 +33,8 @@ public class Reader {
     private Date borrowedTo;
     @ManyToMany
     private Set<Book> borrowedBooks = new HashSet<>();
+    @ManyToMany
+    private Set<Author> subscribedAuthors = new HashSet<>();
     @Builder.Default
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)
@@ -46,5 +48,5 @@ public class Reader {
     private Date updateTime = new Date();
 
     @Column(name = "is_deleted")
-    private boolean deleted=false;
+    private boolean deleted;
 }

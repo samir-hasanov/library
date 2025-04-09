@@ -25,8 +25,6 @@ public class Book {
     private int count;
     @Column(length = 1000)
     private String imageUrl;
-    @OneToOne
-    private Author author;
     @Builder.Default
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)

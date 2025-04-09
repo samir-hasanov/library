@@ -30,6 +30,9 @@ public class Author {
     @OneToMany
     private Set<Book> books=new HashSet<>();
 
+    @ManyToMany(mappedBy = "subscribedAuthors")
+    private Set<Reader> subscribers = new HashSet<>();
+
     @Builder.Default
     @Column(name = "create_time")
     @Temporal(TemporalType.TIMESTAMP)

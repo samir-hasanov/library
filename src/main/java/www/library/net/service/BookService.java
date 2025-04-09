@@ -1,23 +1,18 @@
 package www.library.net.service;
 
-import org.springframework.stereotype.Service;
+
+import org.springframework.web.multipart.MultipartFile;
+import www.library.net.dto.request.BookRequest;
+import www.library.net.dto.response.ResponseStatusList;
 import www.library.net.entity.Book;
-import www.library.net.repository.BookRepository;
+import www.library.net.exception.MyException;
 
 import java.util.List;
 
-@Service
-public class BookService {
+public interface BookService {
 
-    private BookRepository repository;
 
-    public BookService(BookRepository repository) {
-        this.repository = repository;
-    }
+    ResponseStatusList add(MultipartFile multipartFile, BookRequest bookRequest) throws Exception;
 
-    public List<Book> getBooks() {
-
-        return repository.findAll();
-
-    }
+    List<Book> getList();
 }
