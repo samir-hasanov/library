@@ -9,5 +9,5 @@ import java.util.UUID;
 @Repository
 public interface BookRepository extends JpaRepository<Book, UUID> {
 
-
+       Book findByDeletedFalseAndUuid(UUID uuid);
 }

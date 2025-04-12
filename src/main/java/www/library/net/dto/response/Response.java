@@ -1,7 +1,14 @@
 package www.library.net.dto.response;
 
-public class Response<T> {
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
-    private  T t;
+@Data
+public class Response<T> {
+    @JsonProperty(value = "response")
+    private T t;
+    @JsonProperty(value = "status")
+    private ResponseStatus status;
+
 
 }
